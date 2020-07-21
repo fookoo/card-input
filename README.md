@@ -2,6 +2,9 @@
 
 In the project directory, you can run:
 
+### `yarn install`
+To install all needed dependencies
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
