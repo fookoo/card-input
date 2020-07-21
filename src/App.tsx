@@ -7,8 +7,7 @@ import { ICreditCard } from './services/card.service';
 import './App.scss'
 
 const App: React.FC = () => {
-    const [creditCardDetails, setCreditCardDetails] = useState<ICreditCard>();
-
+    const [creditCardDetails, setCreditCardDetails] = useState<ICreditCard | null>();
 
     return (
         <div>

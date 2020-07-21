@@ -4,7 +4,7 @@ import { formatCreditCardNumber, formatNumber, getCreditCardType, ICreditCard } 
 import './CardInput.component.scss';
 
 export interface ICardInputProps {
-    onSubmitReady?: (card: ICreditCard) => void;
+    onSubmitReady?: (card: ICreditCard | null) => void;
 }
 
 const currentYear = Number(
@@ -124,14 +124,17 @@ const CardInput: React.FC<ICardInputProps> = ({ onSubmitReady }) => {
 
     useEffect(() => {
         const isValid = number.length === 19 && month.length === 2 && year.length === 2 && cvc.length === 3;
-
-        if (isValid && onSubmitReady) {
-            onSubmitReady({
-                number: Number(number.replace(/\s+/g, '')),
-                month: Number(month),
-                year: Number(year),
-                cvc: Number(cvc)
-            });
+        if (onSubmitReady) {
+            if (isValid) {
+                onSubmitReady({
+                    number: Number(number.replace(/\s+/g, '')),
+                    month: Number(month),
+                    year: Number(year),
+                    cvc: Number(cvc)
+                });
+            } else {
+                onSubmitReady(null);
+            }
         }
     }, [number, month, year, cvc]);
 
