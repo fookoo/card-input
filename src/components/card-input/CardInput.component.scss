@@ -1,0 +1,54 @@
+.card-input {
+  display: inline-flex;
+  align-items: center;
+
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+
+  height: 22px;
+
+  padding: 8px;
+
+  img {
+    height: 22px;
+
+    margin-right: 4px;
+  }
+
+  input {
+    background: none;
+    border: 0;
+
+    appearance: none;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.number {
+      width: 130px;
+      margin-right: 20px;
+    }
+
+    &.month,
+    &.year {
+      width: 22px;
+    }
+
+    &.year {
+      margin-left: 4px;
+    }
+
+    &.cvc {
+      margin-left: 20px;
+      width: 30px;
+    }
+
+  }
+}
